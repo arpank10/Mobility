@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_help_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_help_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/stop.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xxhdpi/stop.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_android_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_name.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xxhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xxhdpi/iitg_logo.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xxhdpi/iitg_logo.png"
+    }
+]

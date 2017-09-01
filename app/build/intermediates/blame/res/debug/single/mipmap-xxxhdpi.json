@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/icon_1_round.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/icon_1_round.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/icon_1.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/icon_1.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/nav_head.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/nav_head.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/nav_head1.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/nav_head1.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    }
+]

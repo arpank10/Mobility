@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/start"
+        android:orderInCategory="1"
+        android:title="Start"
+        android:icon="@drawable/ic_action_name"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/stop"
+        android:orderInCategory="2"
+        android:title="Stop"
+        android:icon="@drawable/stop"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/about_us"
+        android:title="About Us"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/help"
+        android:title="Help"
+        app:showAsAction="never"/>
+</menu>

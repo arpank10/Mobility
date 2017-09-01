@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_gps_fixed_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-ldpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_android_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-ldpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_help_black_24dp.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-ldpi/ic_help_black_24dp.png"
+    }
+]

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="Mode">
+    <item>Include rotation sensor</item>
+    <item>Exclude rotation sensor</item>
+</string-array>
+<string-array name="Mode_value">
+    <item>1</item>
+    <item>2</item>
+</string-array>
+<string-array name="Frequency_accmag">
+    <item>5 readings per second</item>
+    <item>10 readings per second</item>
+    <item>20 readings per second</item>
+</string-array>
+    <string-array name="Frequency_gps">
+        <item>1 reading per 2 second</item>
+        <item>1 reading per 5 second</item>
+        <item>1 reading per 10 second</item>
+    </string-array>
+<string-array name="Frequency_values">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+</string-array>
+</resources>

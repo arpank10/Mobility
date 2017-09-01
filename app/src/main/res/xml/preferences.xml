@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Mode"
+        android:key="recording_mode">
+        <ListPreference
+            android:dependency="default"
+            android:key="Mode"
+            android:title="Data Recording Mode"
+            android:entries="@array/Mode"
+            android:entryValues="@array/Mode_value"/>
+        <ListPreference
+            android:key="default"
+            android:title="Default Mode"
+            android:entries="@array/Mode"
+            android:entryValues="@array/Mode_value"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Data Recording Frequency"
+        android:key="frequency_selection">
+        <ListPreference
+            android:key="acc_mag_frequency"
+            android:title="Accelerometer and Magnetometer Frequency"
+            android:entries="@array/Frequency_accmag"
+            android:entryValues="@array/Frequency_values"/>
+        <ListPreference
+            android:key="gps_frequency"
+            android:title="GPS frequency"
+            android:entries="@array/Frequency_gps"
+            android:entryValues="@array/Frequency_values"/>
+    </PreferenceCategory>
+</PreferenceScreen>

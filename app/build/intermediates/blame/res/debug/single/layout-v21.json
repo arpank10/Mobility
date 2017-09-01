@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout-v21/place_autocomplete_fragment.xml",
+        "source": "/home/ark/.android/build-cache/ec4151163e9ecbed43369a2123d48a977de91311/output/res/layout-v21/place_autocomplete_fragment.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout-v21/notification_template_custom_big.xml"
+    }
+]
