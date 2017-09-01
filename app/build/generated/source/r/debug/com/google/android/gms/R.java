@@ -543,9 +543,9 @@ public final class R {
         public static final int s4 = 0x7f090062;
         public static final int s5 = 0x7f090063;
         public static final int s6 = 0x7f090064;
-        public static final int tagmanager_preview_dialog_button = 0x7f09008f;
-        public static final int tagmanager_preview_dialog_message = 0x7f090090;
-        public static final int tagmanager_preview_dialog_title = 0x7f090091;
+        public static final int tagmanager_preview_dialog_button = 0x7f090090;
+        public static final int tagmanager_preview_dialog_message = 0x7f090091;
+        public static final int tagmanager_preview_dialog_title = 0x7f090092;
         public static final int wallet_buy_button_place_holder = 0x7f090067;
     }
     public static final class style {

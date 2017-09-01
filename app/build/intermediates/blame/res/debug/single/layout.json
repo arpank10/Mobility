@@ -40,12 +40,12 @@
         "source": "/home/ark/.android/build-cache/0fe4308f9df4e6fcf6ddd267ab072a3983b6b51d/output/res/layout/mr_volume_control.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout/abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout/mr_chooser_list_item.xml",
         "source": "/home/ark/.android/build-cache/0fe4308f9df4e6fcf6ddd267ab072a3983b6b51d/output/res/layout/mr_chooser_list_item.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",

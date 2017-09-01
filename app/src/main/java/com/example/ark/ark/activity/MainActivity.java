@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -240,8 +241,13 @@ public class MainActivity extends AppCompatActivity
                 toast.show();
                 SharedPreferences pref =getSharedPreferences("username",0);
                 String s=pref.getString("user","");
+                SharedPreferences pref1= PreferenceManager.getDefaultSharedPreferences(this);
+                String acc_mag_freq=pref1.getString("acc_mag_frequency","100");
+                String gps_freq=pref1.getString("gps_frequency","2000");
                 Intent intent=new Intent(this, DataRecording.class);
                 intent.putExtra("username",s);
+                intent.putExtra("acc_mag_freq",acc_mag_freq);
+                intent.putExtra("gps_freq",gps_freq);
                 startService(intent);
             }
             else
@@ -250,4 +256,6 @@ public class MainActivity extends AppCompatActivity
         else
             Toast.makeText(this,"Data recording is already active",Toast.LENGTH_SHORT).show();
     }
+
+
 }

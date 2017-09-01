@@ -20,11 +20,14 @@
             android:key="acc_mag_frequency"
             android:title="Accelerometer and Magnetometer Frequency"
             android:entries="@array/Frequency_accmag"
-            android:entryValues="@array/Frequency_values"/>
+            android:entryValues="@array/acc_mag_values"/>
         <ListPreference
             android:key="gps_frequency"
             android:title="GPS frequency"
             android:entries="@array/Frequency_gps"
-            android:entryValues="@array/Frequency_values"/>
+            android:entryValues="@array/gps_values"/>
     </PreferenceCategory>
+    <Preference android:title="Save"
+                android:key="@string/save_button"
+                />
 </PreferenceScreen>

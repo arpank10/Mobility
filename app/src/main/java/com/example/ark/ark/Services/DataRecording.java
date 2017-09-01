@@ -38,7 +38,9 @@ public class DataRecording extends Service {
     private Accelerometer accelerometer;
     private Gps gps;
     private Timer myTimer,gpsTimer;
-
+    //frequency variables
+    private int acc_mag_freq=100;
+    private int gps_freq=2000;
 
     SimpleDateFormat time=new SimpleDateFormat(TIMESTAMP_FORMAT);
     SimpleDateFormat time1=new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
@@ -88,6 +90,10 @@ public class DataRecording extends Service {
         String user="";
         if (intent !=null && intent.getExtras()!=null){
             user = intent.getExtras().getString("username");
+            String t=intent.getExtras().getString("acc_mag_freq");
+            String r=intent.getExtras().getString("gps_freq");
+            acc_mag_freq=Integer.parseInt(t);
+            gps_freq=Integer.parseInt(r);
         }
 
         //Creating variables for file names
@@ -116,14 +122,14 @@ public class DataRecording extends Service {
                 TimerMethod();
             }
 
-        }, 0, 100);
+        }, 0,acc_mag_freq);
         gpsTimer=new Timer();
         gpsTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 getDataGps();
             }
-        },0,500);
+        },0,gps_freq);
         return START_STICKY;
     }
     public void TimerMethod(){

@@ -164,7 +164,6 @@ ADDED from /media/ark/Arpan/Android Stuff/ArK/app/src/main/AndroidManifest.xml:4
 		ADDED from /media/ark/Arpan/Android Stuff/ArK/app/src/main/AndroidManifest.xml:41:13-62
 uses-sdk
 INJECTED from /media/ark/Arpan/Android Stuff/ArK/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:multidex:1.0.1] /home/ark/.android/build-cache/09b53e9e2c53d59a136d8a7d1dc511daad6804ea/output/AndroidManifest.xml:18:5-42
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/ark/.android/build-cache/8e030c7698ae9c4f88d9d06f2c90d48ab1f7356f/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:design:26.0.0-alpha1] /home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:26.0.0-alpha1] /home/ark/.android/build-cache/ba4556be260e8c0aa1a10fb3c1f3469327086d1c/output/AndroidManifest.xml:20:5-44

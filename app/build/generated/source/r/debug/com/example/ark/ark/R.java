@@ -30,12 +30,13 @@ public final class R {
     public static final class array {
         public static final int Frequency_accmag=0x7f0f0000;
         public static final int Frequency_gps=0x7f0f0001;
-        public static final int Frequency_values=0x7f0f0002;
-        public static final int Mode=0x7f0f0003;
-        public static final int Mode_value=0x7f0f0004;
+        public static final int Mode=0x7f0f0002;
+        public static final int Mode_value=0x7f0f0003;
+        public static final int acc_mag_values=0x7f0f0004;
         public static final int cast_expanded_controller_default_control_buttons=0x7f0f0005;
         public static final int cast_mini_controller_default_control_buttons=0x7f0f0006;
-        public static final int nav_item_activity_titles=0x7f0f0007;
+        public static final int gps_values=0x7f0f0007;
+        public static final int nav_item_activity_titles=0x7f0f0008;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -5203,13 +5204,14 @@ containing a value of this type.
         public static final int s4=0x7f090062;
         public static final int s5=0x7f090063;
         public static final int s6=0x7f090064;
+        public static final int save_button=0x7f09008e;
         public static final int search_menu_title=0x7f090065;
-        public static final int start=0x7f09008e;
+        public static final int start=0x7f09008f;
         public static final int status_bar_notification_info_overflow=0x7f090066;
-        public static final int tagmanager_preview_dialog_button=0x7f09008f;
-        public static final int tagmanager_preview_dialog_message=0x7f090090;
-        public static final int tagmanager_preview_dialog_title=0x7f090091;
-        public static final int username=0x7f090092;
+        public static final int tagmanager_preview_dialog_button=0x7f090090;
+        public static final int tagmanager_preview_dialog_message=0x7f090091;
+        public static final int tagmanager_preview_dialog_title=0x7f090092;
+        public static final int username=0x7f090093;
         public static final int wallet_buy_button_place_holder=0x7f090067;
     }
     public static final class style {

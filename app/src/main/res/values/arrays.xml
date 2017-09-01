@@ -18,9 +18,14 @@
         <item>1 reading per 5 second</item>
         <item>1 reading per 10 second</item>
     </string-array>
-<string-array name="Frequency_values">
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
+<string-array name="acc_mag_values">
+    <item>200</item>
+    <item>100</item>
+    <item>50</item>
 </string-array>
+    <string-array name="gps_values">
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+    </string-array>
 </resources>
