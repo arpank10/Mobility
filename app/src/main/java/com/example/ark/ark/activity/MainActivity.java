@@ -2,13 +2,16 @@ package com.example.ark.ark.activity;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -17,6 +20,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -32,6 +36,7 @@ import com.example.ark.ark.fragments.GpsFragment;
 import com.example.ark.ark.fragments.HomeFragment;
 import com.example.ark.ark.fragments.MagFragment;
 import com.example.ark.ark.fragments.SettingsFragment;
+import com.example.ark.ark.fragments.rotationfragment;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
         // creating Directory Data here after checking corresponding permission
@@ -69,6 +75,9 @@ public class MainActivity extends AppCompatActivity
             if(gpsDirectory.exists() && gpsDirectory.isDirectory()){}
             else{gpsDirectory.mkdirs();}
         }
+        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+            displayGPSprompt();
 
         if(!isMyServiceRunning(DataRecording.class))
             startrecording();
@@ -87,7 +96,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void permissioncheck() {
+    /*private void permissioncheck() {
         int permissionloc = ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission_group.LOCATION);
         int storagePermission = ContextCompat.checkSelfPermission(this,
@@ -104,7 +113,7 @@ public class MainActivity extends AppCompatActivity
             ActivityCompat.requestPermissions(this,
                     listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),1);
         }
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -167,6 +176,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_gps:
                 fragment = new GpsFragment();
+                break;
+            case R.id.nav_rotation:
+                fragment = new rotationfragment();
                 break;
             case R.id.nav_settings:
                 Intent intent1=new Intent(this,SettingsActivity.class);
@@ -257,5 +269,25 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this,"Data recording is already active",Toast.LENGTH_SHORT).show();
     }
 
-
+    public void displayGPSprompt(){
+        final AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        new AlertDialog.Builder(this);
+        final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+        final String message = "GPS is currently switched off"+" Switch it on for high location accuracy";
+        builder.setMessage(message)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface d, int id) {
+                                startActivity(new Intent(action));
+                                d.dismiss();
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface d, int id) {
+                                d.cancel();
+                            }
+                        });
+        builder.create().show();
+    }
 }

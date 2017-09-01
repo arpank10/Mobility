@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_acc.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xhdpi/ic_acc.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/stop.png"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
@@ -12,6 +20,14 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xhdpi/stop.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_help_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_home.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xhdpi/ic_home.png"
     },
@@ -20,8 +36,20 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_action_name.png"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
