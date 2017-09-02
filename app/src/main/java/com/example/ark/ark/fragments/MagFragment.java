@@ -15,17 +15,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ark.ark.R;
+import com.example.ark.ark.Sensors.Accelerometer;
 import com.example.ark.ark.Sensors.Magnetometer;
-/**
- * Registered another listener in this fragment
- * such that data is displayed even when the service is switched off
- * instead of broadcasting the values from the service
- */
-public class MagFragment extends Fragment implements SensorEventListener{
+import com.google.android.gms.internal.acc;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class MagFragment extends Fragment{
     private TextView x,y,z;
     private float[] magValues;
-    private Sensor mag;
-    private SensorManager magman;
+    private Magnetometer mag;
+    private Timer timer;
 
     public MagFragment() {
         // Required empty public constructor
@@ -39,11 +41,26 @@ public class MagFragment extends Fragment implements SensorEventListener{
         x=rootView.findViewById(R.id.mx);
         y=rootView.findViewById(R.id.my);
         z=rootView.findViewById(R.id.mz);
-        magman=(SensorManager)this.getActivity().getSystemService(Context.SENSOR_SERVICE);
-        if(magman.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
-            magValues=new float[3];
-            mag=magman.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-            magman.registerListener(this,mag,SensorManager.SENSOR_DELAY_NORMAL);
+        mag=new Magnetometer(getActivity());
+        if(mag.isMagAvailable()) {
+            magValues = new float[3];
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if (getActivity() == null)
+                        return;
+                    magValues = mag.getLastReading();
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            displayData();
+                            ;
+                        }
+                    });
+                }
+
+            }, 0, 100);
         }
         return rootView;
     }
@@ -64,15 +81,4 @@ public class MagFragment extends Fragment implements SensorEventListener{
 
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        for(int i=0;i<3;i++)
-            magValues[i]=sensorEvent.values[i];
-        displayData();
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
-    }
 }

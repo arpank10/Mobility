@@ -19,6 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="X-Axis"
+            android:textSize="25dp"
+            android:gravity="center"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -36,7 +38,9 @@
             android:id="@+id/ay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="X-Axis"
+            android:textSize="25dp"
+            android:text="Y-Axis"
+            android:gravity="center"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -54,7 +58,9 @@
             android:id="@+id/az"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="X-Axis"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:text="Z-Axis"
             android:layout_weight="1"/>
 
     </LinearLayout>

@@ -17,15 +17,15 @@ import android.widget.TextView;
 import com.example.ark.ark.R;
 import com.example.ark.ark.Sensors.Accelerometer;
 
-/**
- * Registered another sensoreventlistener in this fragment
- * such that data is displayed even when the service is switched off
- */
-public class AccFragment extends Fragment implements SensorEventListener{
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class AccFragment extends Fragment{
     private TextView x,y,z;
     private float[] accValues;
-    private Sensor acc;
-    private SensorManager accman;
+    private Accelerometer acc;
+    private Timer timer;
     public AccFragment() {
         // Required empty public constructor
     }
@@ -34,16 +34,31 @@ public class AccFragment extends Fragment implements SensorEventListener{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        View rootView = inflater.inflate(R.layout.fragment_accfragment, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_accfragment, container, false);
         x=rootView.findViewById(R.id.ax);
         y=rootView.findViewById(R.id.ay);
         z=rootView.findViewById(R.id.az);
 
-        accman=(SensorManager)this.getActivity().getSystemService(Context.SENSOR_SERVICE);
-        if(accman.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)!=null){
+        acc=new Accelerometer(getActivity());
+        if(acc.isAccAvailable())
+        {
             accValues=new float[3];
-            acc=accman.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            accman.registerListener(this,acc,SensorManager.SENSOR_DELAY_NORMAL);
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if(getActivity()==null)
+                        return;
+                    accValues=acc.getLastReading();
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                        displayData();;
+                        }
+                    });
+                }
+
+            }, 0,100);
         }
 
         return rootView;
@@ -64,14 +79,7 @@ public class AccFragment extends Fragment implements SensorEventListener{
     }
 
     @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        for(int i=0;i<3;i++)
-            accValues[i]=sensorEvent.values[i];
-        displayData();
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }
