@@ -10,9 +10,11 @@ public final class Constants {
     public final static String DIRECTORY_ACC="/Accelerometer_Data";
     public final static String DIRECTORY_MAG="/Magnetometer_Data";
     public final static String DIRECTORY_GPS="/GPS_Data";
+    public final static String DIRECTORY_ROTATION="/Rotation Sensor Data";
     public final static String DATA_FILE_NAME_ACC="accData.csv";
     public final static String DATA_FILE_NAME_MAG="magDATA.csv";
     public final static String DATA_FILE_NAME_GPS="gpsDATA.csv";
+    public final static String DATA_FILE_NAME_ROTATION="rotation.csv";
     public static String USER_NAME="";
 
     // Recording related info
@@ -22,5 +24,7 @@ public final class Constants {
     public final static int NORMAL_RECORDING_MODE = SensorManager.SENSOR_DELAY_NORMAL;
     public final static int BATTERY_SAVER_RECORDING_MODE = SensorManager.SENSOR_DELAY_NORMAL;
 
+    //Threshold
+    public final static long TOTAL_RECORDINGS=100000;
 
 }

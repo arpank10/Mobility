@@ -18,21 +18,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ark.ark.R;
-/**
- * A simple {@link Fragment} subclass.
- */
-@SuppressWarnings("FieldCanBeLocal")
-public class GpsFragment extends Fragment implements LocationListener{
+import com.example.ark.ark.Sensors.Gps;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class GpsFragment extends Fragment{
     private TextView x,y,z;
-    private Location loc;
-    private LocationManager locman;
-    private boolean isgps;
-    private boolean isnetwork;
-    private float[] gpsdata;
-
-    private final String gps_provider = LocationManager.GPS_PROVIDER;
-    private final String network_provider = LocationManager.NETWORK_PROVIDER;
-
+    private float[] gpsData;
+    private Gps gps;
+    private Timer timer;
 
     public GpsFragment() {
 
@@ -44,25 +40,26 @@ public class GpsFragment extends Fragment implements LocationListener{
         View rootView = inflater.inflate(R.layout.fragment_gps, container, false);
         x=rootView.findViewById(R.id.gx);
         y=rootView.findViewById(R.id.gy);
-        z=rootView.findViewById(R.id.gz);
-        gpsdata=new float[3];
-        locman = (LocationManager)this.getActivity().getSystemService(Context.LOCATION_SERVICE);
 
-        isgps = locman.isProviderEnabled(gps_provider);
-        isnetwork = locman.isProviderEnabled(network_provider);
+        gps=new Gps(getActivity());
+        gpsData=new float[2];
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if(getActivity()==null)
+                    return;
+                gpsData=gps.getReading();
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayData();;
+                    }
+                });
+            }
 
+        }, 0,500);
 
-        if ( Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-        }
-        locman.requestLocationUpdates(gps_provider, 0, 0, this);
-        loc=locman.getLastKnownLocation(gps_provider);
-
-        if(loc== null)
-            if (isnetwork)
-                loc = locman.getLastKnownLocation(network_provider);
         return rootView;
     }
 
@@ -72,38 +69,13 @@ public class GpsFragment extends Fragment implements LocationListener{
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("GPS");
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        loc=location;
-        displayData();
-    }
-
-    @Override
-    public void onStatusChanged(String s, int i, Bundle bundle) {
 
     }
 
     @SuppressLint("DefaultLocale")
     private void displayData(){
-        if(loc!=null)
-        {
-            gpsdata[0]= (float) loc.getLatitude();
-            gpsdata[1]=(float) loc.getLongitude();
-            gpsdata[2]=(float) loc.getAltitude();
-        }
-        x.setText(String.format("%.5f", gpsdata[0]));
-        y.setText(String.format("%.5f", gpsdata[1]));
-        z.setText(String.format("%.5f", gpsdata[2]));
-    }
-    @Override
-    public void onProviderEnabled(String s) {
-
+        x.setText(String.format("%.5f", gpsData[0]));
+        y.setText(String.format("%.5f", gpsData[1]));
     }
 
-    @Override
-    public void onProviderDisabled(String s) {
-
-    }
 }

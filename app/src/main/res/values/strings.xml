@@ -10,6 +10,8 @@
     <string name="start">START</string>
     <string name="name">User</string>
     <string name="save_button">save_button</string>
+    <string name="include">Current value: Rotation sensor included</string>
+    <string name="exclude">Current value: Rotation sensor excluded</string>
 
     <string name="nav_home">Home</string>
     <string name="nav_magnetometer">Magnetometer</string>

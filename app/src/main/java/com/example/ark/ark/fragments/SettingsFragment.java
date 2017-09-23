@@ -46,6 +46,36 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String m=pref.getString("Mode",null);
+        Preference mode=findPreference("Mode");
+        if(m=="1")
+            mode.setSummary(R.string.include);
+        else if(m=="2")
+            mode.setSummary(R.string.exclude);
+        mode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                String newval=o.toString();
+                if(newval=="1")
+                    preference.setSummary(R.string.include);
+                else if(newval=="2")
+                    preference.setSummary(R.string.exclude);
+                return true;
+            }
+        });
+       Preference def_mode=findPreference("defaultm");
+        def_mode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                String newval=o.toString();
+                if(newval=="1")
+                   preference.setSummary(R.string.include);
+                else if(newval=="2")
+                preference.setSummary(R.string.exclude);
+                return true;
+            }
+        });
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
@@ -59,31 +89,25 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     private void restartRecording() {
+        SharedPreferences pref = getActivity().getSharedPreferences("username", 0);
+        String s = pref.getString("user", "");
+        SharedPreferences pref1 = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String acc_mag_freq = pref1.getString("acc_mag_frequency", "100");
+        String gps_freq = pref1.getString("gps_frequency", "2000");
+        String recording_mode=pref1.getString("Mode","2");
+        Intent intent = new Intent(getActivity(), DataRecording.class);
+        intent.putExtra("username", s);
+        intent.putExtra("acc_mag_freq", acc_mag_freq);
+        intent.putExtra("gps_freq", gps_freq);
+        intent.putExtra("mode",recording_mode);
         if (isMyServiceRunning(DataRecording.class)) {
             Intent intentStop = new Intent(getActivity(), DataRecording.class);
             getActivity().stopService(intentStop);
-            SharedPreferences pref = getActivity().getSharedPreferences("username", 0);
-            String s = pref.getString("user", "");
-            SharedPreferences pref1 = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String acc_mag_freq = pref1.getString("acc_mag_frequency", "100");
-            String gps_freq = pref1.getString("gps_frequency", "2000");
-            Intent intent = new Intent(getActivity(), DataRecording.class);
-            intent.putExtra("username", s);
-            intent.putExtra("acc_mag_freq", acc_mag_freq);
-            intent.putExtra("gps_freq", gps_freq);
             getActivity().startService(intent);
         } else {
-            SharedPreferences pref = getActivity().getSharedPreferences("username", 0);
-            String s = pref.getString("user", "");
-            SharedPreferences pref1 = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String acc_mag_freq = pref1.getString("acc_mag_frequency", "100");
-            String gps_freq = pref1.getString("gps_frequency", "2000");
-            Intent intent = new Intent(getActivity(), DataRecording.class);
-            intent.putExtra("username", s);
-            intent.putExtra("acc_mag_freq", acc_mag_freq);
-            intent.putExtra("gps_freq", gps_freq);
             getActivity().startService(intent);
         }
+        Toast.makeText(getActivity(),recording_mode,Toast.LENGTH_SHORT).show();
         Toast.makeText(getActivity(), "Data recording restarted", Toast.LENGTH_SHORT).show();
     }
 }

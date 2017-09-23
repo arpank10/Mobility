@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".fragments.AccFragment">
     <LinearLayout
@@ -9,11 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
+            android:gravity="center"
+            android:textSize="50dp"
+            android:text="X-Axis"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/ax"
             android:layout_width="match_parent"
@@ -29,11 +32,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
+            android:gravity="center"
+            android:textSize="50dp"
+            android:text="Y-Axis"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/ay"
             android:layout_width="match_parent"
@@ -49,11 +54,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
+            android:gravity="center"
+            android:textSize="50dp"
+            android:text="Z-Axis"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/az"
             android:layout_width="match_parent"

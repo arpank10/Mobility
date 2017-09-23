@@ -13,7 +13,6 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -35,13 +34,9 @@ import com.example.ark.ark.fragments.AccFragment;
 import com.example.ark.ark.fragments.GpsFragment;
 import com.example.ark.ark.fragments.HomeFragment;
 import com.example.ark.ark.fragments.MagFragment;
-import com.example.ark.ark.fragments.SettingsFragment;
+import com.example.ark.ark.fragments.RotationFragment;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
-import java.util.jar.Manifest;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,8 +47,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
+        String k=pref.getString("defaultm","abcd");
+        Toast.makeText(this,k,Toast.LENGTH_LONG).show();
+        SharedPreferences.Editor ed=pref.edit();
+        ed.putString("Mode",k);
+        ed.commit();
+        String kq=pref.getString("Mode","abcd");
 
         // creating Directory Data here after checking corresponding permission
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
@@ -61,18 +62,17 @@ public class MainActivity extends AppCompatActivity
             File accDirectory=new File(sdDirectory+Constants.DIRECTORY_ACC);
             File magDirectory=new File(sdDirectory+Constants.DIRECTORY_MAG);
             File gpsDirectory=new File(sdDirectory+Constants.DIRECTORY_GPS);
-            if(sdDirectory.exists() && sdDirectory.isDirectory()){
-                //directory is present, no need to do anything here
-            }
-            else{
-                sdDirectory.mkdirs();
-            }
+            File rotationDirectory= new File(sdDirectory+Constants.DIRECTORY_ROTATION);
+            if(sdDirectory.exists() && sdDirectory.isDirectory()){}
+            else{sdDirectory.mkdirs();}
             if(accDirectory.exists()&&accDirectory.isDirectory()){}
             else {accDirectory.mkdirs();}
             if(magDirectory.exists() && magDirectory.isDirectory()){}
             else {magDirectory.mkdirs();}
             if(gpsDirectory.exists() && gpsDirectory.isDirectory()){}
             else{gpsDirectory.mkdirs();}
+            if(rotationDirectory.exists()&&rotationDirectory.isDirectory()){}
+            else{rotationDirectory.mkdirs();}
         }
         final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
         if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
 
         if(!isMyServiceRunning(DataRecording.class))
             startrecording();
-
+        Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -176,6 +176,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_gps:
                 fragment = new GpsFragment();
                 break;
+            case R.id.nav_rotation:
+                fragment = new RotationFragment();
+                break;
             case R.id.nav_settings:
                 Intent intent1=new Intent(this,SettingsActivity.class);
                 startActivity(intent1);
@@ -251,11 +254,14 @@ public class MainActivity extends AppCompatActivity
                 String s=pref.getString("user","");
                 SharedPreferences pref1= PreferenceManager.getDefaultSharedPreferences(this);
                 String acc_mag_freq=pref1.getString("acc_mag_frequency","100");
+                String def=pref1.getString("defaultm","2");
                 String gps_freq=pref1.getString("gps_frequency","2000");
+                String recording_mode=pref1.getString("Mode","2");
                 Intent intent=new Intent(this, DataRecording.class);
                 intent.putExtra("username",s);
                 intent.putExtra("acc_mag_freq",acc_mag_freq);
                 intent.putExtra("gps_freq",gps_freq);
+                intent.putExtra("mode",recording_mode);
                 startService(intent);
             }
             else

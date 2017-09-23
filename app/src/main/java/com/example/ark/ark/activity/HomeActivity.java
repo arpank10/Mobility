@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences.Editor ed = pref.edit();
         ed.putBoolean("activity_executed", true);
         ed.commit();
+
         setContentView(R.layout.home_activity_layout);
         //Dealing with permissions
         int PERMISSION_ALL = 1;

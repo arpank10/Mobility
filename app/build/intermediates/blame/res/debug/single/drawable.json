@@ -12,12 +12,12 @@
         "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_mini_controller_gradient_light.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_expanded_controller_pause.xml",
-        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_expanded_controller_pause.xml"
-    },
-    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
         "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_expanded_controller_pause.xml",
+        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_expanded_controller_pause.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
@@ -44,24 +44,24 @@
         "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_expanded_controller_stop.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable/abc_item_background_holo_light.xml"
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/drawable/navigation_empty_icon.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_mini_controller_skip_prev.xml",
         "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_mini_controller_skip_prev.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
-        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/drawable/navigation_empty_icon.xml"
-    },
-    {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_forward.xml",
-        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_notification_forward.xml"
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_disabled.xml",
         "source": "/home/ark/.android/build-cache/b7d8686d279210477215258964b33f12b951130f/output/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_forward.xml",
+        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_ic_notification_forward.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_expanded_controller_bg_gradient_light.xml",
@@ -76,12 +76,12 @@
         "source": "/home/ark/.android/build-cache/0fe4308f9df4e6fcf6ddd267ab072a3983b6b51d/output/res/drawable/mr_media_pause_light.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_skip_ad_label_border.xml",
-        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_skip_ad_label_border.xml"
-    },
-    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
         "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_skip_ad_label_border.xml",
+        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable/cast_skip_ad_label_border.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/cast_ic_mini_controller_play.xml",
@@ -248,6 +248,10 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable/wg_blurred_backgrounds_14.jpg"
     },
     {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/bg.jpg",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable/bg.jpg"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
         "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable/abc_ratingbar_small_material.xml"
     },
@@ -326,6 +330,10 @@
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/mr_dialog_material_background_light.xml",
         "source": "/home/ark/.android/build-cache/0fe4308f9df4e6fcf6ddd267ab072a3983b6b51d/output/res/drawable/mr_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/icon2.png",
+        "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/drawable/icon2.png"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",

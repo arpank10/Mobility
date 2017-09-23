@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".fragments.AccFragment">
     <LinearLayout
@@ -9,16 +10,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
+            android:gravity="center"
+            android:textSize="40dp"
+            android:text="Latitude"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/gx"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="X-Axis"
+            android:textSize="25dp"
+            android:gravity="center"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -27,34 +32,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
+            android:gravity="center"
+            android:textSize="40dp"
+            android:text="Longitude"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/gy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="X-Axis"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_android_black_24dp"/>
-        <TextView
-            android:id="@+id/gz"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="X-Axis"
+            android:textSize="25dp"
+            android:text="Y-Axis"
+            android:gravity="center"
             android:layout_weight="1"/>
 
     </LinearLayout>

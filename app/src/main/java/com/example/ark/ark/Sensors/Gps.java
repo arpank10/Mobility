@@ -43,8 +43,10 @@ public class Gps implements LocationListener {
             loc=locman.getLastKnownLocation(gps_provider);
 
         if(loc== null)
-            if (isnetwork)
+            if (isnetwork) {
+                locman.requestLocationUpdates(network_provider,0,0,this);
                 loc = locman.getLastKnownLocation(network_provider);
+            }
     }
 
     @Override
