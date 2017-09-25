@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/menu/options_menu.xml",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/menu/options_menu.xml"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/menu/options_menu.xml",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/menu/options_menu.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/menu/activity_main_drawer.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/menu/activity_main_drawer.xml"
     }
 ]

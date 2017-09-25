@@ -2,5 +2,9 @@
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/xml/preferences.xml"
     }
 ]

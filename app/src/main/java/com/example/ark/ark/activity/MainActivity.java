@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity
         ed.commit();
         String kq=pref.getString("Mode","abcd");
 
+        Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
+
         // creating Directory Data here after checking corresponding permission
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
             File sdDirectory = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + Constants.DIRECTORY);
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         if(!isMyServiceRunning(DataRecording.class))
             startrecording();
-        Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

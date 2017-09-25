@@ -4,6 +4,10 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxhdpi/icon_1_round.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/icon_1_round.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/icon_1_round.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/nav_head.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxhdpi/nav_head.png"
     },
@@ -12,12 +16,32 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxhdpi/icon_1.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/icon_1.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/icon_1.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher_round.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/nav_head1.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/nav_head1.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/nav_head1.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/src/main/res/mipmap-xxhdpi/nav_head1.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/nav_head.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/mipmap-xxhdpi/nav_head.png"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher_round.png",

@@ -16,6 +16,22 @@
         "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/drawable-v21/avd_show_password.xml"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/durgesh/.android/build-cache/6e03eed1d045bafdfa81db574562043a90f8beda/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/home/durgesh/.android/build-cache/6e03eed1d045bafdfa81db574562043a90f8beda/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/home/durgesh/.android/build-cache/e725890c47fc7a81d046627493867fb16a996620/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/home/durgesh/.android/build-cache/e725890c47fc7a81d046627493867fb16a996620/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
         "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable-v21/abc_edit_text_material.xml"
     },
@@ -26,6 +42,22 @@
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
         "source": "/home/ark/.android/build-cache/51ef7aecd738c41723f19d9f6af7b3e53f4319f6/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/durgesh/.android/build-cache/6e03eed1d045bafdfa81db574562043a90f8beda/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/home/durgesh/.android/build-cache/e725890c47fc7a81d046627493867fb16a996620/output/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/durgesh/.android/build-cache/6e03eed1d045bafdfa81db574562043a90f8beda/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/home/durgesh/.android/build-cache/e725890c47fc7a81d046627493867fb16a996620/output/res/drawable-v21/design_password_eye.xml"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",

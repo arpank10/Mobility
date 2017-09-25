@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-hdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_gps_fixed_black_24dp.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-hdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_android_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-hdpi/ic_android_black_24dp.png"
     },
     {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-hdpi/stop.png",
@@ -16,7 +24,19 @@
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-hdpi/ic_help_black_24dp.png"
     },
     {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_help_black_24dp.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-hdpi/ic_help_black_24dp.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-hdpi/stop.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-hdpi/stop.png"
+    },
+    {
         "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_android_black_24dp.png",
         "source": "/media/ark/Arpan/Android Stuff/ArK/app/build/generated/res/pngs/debug/drawable-hdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_name.png",
+        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-hdpi/ic_action_name.png"
     }
 ]
