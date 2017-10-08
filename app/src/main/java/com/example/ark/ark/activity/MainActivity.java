@@ -1,13 +1,17 @@
 package com.example.ark.ark.activity;
 
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -16,20 +20,28 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ark.ark.Constants;
 import com.example.ark.ark.R;
 
 import com.example.ark.ark.Services.DataRecording;
+import com.example.ark.ark.Services.Internet_Broadcast;
+import com.example.ark.ark.Services.background_uploading;
+import com.example.ark.ark.Services.uploading;
+import com.example.ark.ark.app_url.app_config;
 import com.example.ark.ark.fragments.AccFragment;
 import com.example.ark.ark.fragments.GpsFragment;
 import com.example.ark.ark.fragments.HomeFragment;
@@ -38,8 +50,17 @@ import com.example.ark.ark.fragments.RotationFragment;
 
 import java.io.File;
 
+import static com.example.ark.ark.activity.HomeActivity.username_public;
+
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    TextView user_text;
+    String user_header_xml;
+    Internet_Broadcast Ireciever = new Internet_Broadcast();
+    public static background_uploading bu = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor ed=pref.edit();
         ed.putString("Mode",k);
         ed.commit();
+
         String kq=pref.getString("Mode","abcd");
 
         Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
@@ -80,8 +102,10 @@ public class MainActivity extends AppCompatActivity
         if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
             displayGPSprompt();
 
-        if(!isMyServiceRunning(DataRecording.class))
+        if(!isMyServiceRunning(DataRecording.class)) {
             startrecording();
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -92,8 +116,30 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //code added for username for header
+        View header=navigationView.getHeaderView(0);
+
+        SharedPreferences x = getSharedPreferences("ActivityPREF" , 0);
+        user_header_xml = x.getString("username" , "user");
+        TextView user_header_text  = (TextView) header.findViewById(R.id.user_header_name);
+        user_header_text.setText(user_header_xml);
+
         //add this line to display menu1 when the activity is loaded
         displaySelectedScreen(R.id.nav_home);
+
+
+       start_uploading();
+
+    }
+
+    public void start_uploading(){
+        Log.d("status", "async task out  main activity");
+
+        if( bu == null || bu.getStatus() != AsyncTask.Status.RUNNING){
+            Log.d("status", "async task main activity");
+            bu = new background_uploading(this);
+            bu.execute();
+        }
     }
 
 
@@ -128,6 +174,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onResume(){
         super.onResume();
+        registerReceiver( this.Ireciever ,
+                new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+    @Override
+    public void onPause(){
+        super.onPause();
+        unregisterReceiver( this.Ireciever );
     }
 
     @Override
@@ -252,8 +305,8 @@ public class MainActivity extends AppCompatActivity
             if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
                 Toast toast=Toast.makeText(getApplicationContext(), "Recording started",Toast.LENGTH_SHORT);
                 toast.show();
-                SharedPreferences pref =getSharedPreferences("username",0);
-                String s=pref.getString("user","");
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("ActivityPREF",0);
+                String s=pref.getString("username", "user");
                 SharedPreferences pref1= PreferenceManager.getDefaultSharedPreferences(this);
                 String acc_mag_freq=pref1.getString("acc_mag_frequency","100");
                 String def=pref1.getString("defaultm","2");
@@ -272,6 +325,8 @@ public class MainActivity extends AppCompatActivity
         else
             Toast.makeText(this,"Data recording is already active",Toast.LENGTH_SHORT).show();
     }
+
+
 
     public void displayGPSprompt(){
         final AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -294,4 +349,14 @@ public class MainActivity extends AppCompatActivity
                         });
         builder.create().show();
     }
+
+    /*
+    private BroadcastReceiver Ireciever = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
+
+    };
+    */
 }

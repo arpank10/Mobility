@@ -4,23 +4,11 @@
         "source": "/home/durgesh/.android/build-cache/9878397cf1f6a1c10fccdb66dcd7b93509daa72e/output/res/drawable-watch-v20/common_google_signin_btn_text_light_normal.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-watch-v20/common_google_signin_btn_text_dark_normal.xml",
-        "source": "/home/ark/.android/build-cache/4b069f52af7d13150b97f340ffedb9f62a277e2d/output/res/drawable-watch-v20/common_google_signin_btn_text_dark_normal.xml"
-    },
-    {
         "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-watch-v20/common_google_signin_btn_text_disabled.xml",
         "source": "/home/durgesh/.android/build-cache/9878397cf1f6a1c10fccdb66dcd7b93509daa72e/output/res/drawable-watch-v20/common_google_signin_btn_text_disabled.xml"
     },
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-watch-v20/common_google_signin_btn_text_light_normal.xml",
-        "source": "/home/ark/.android/build-cache/4b069f52af7d13150b97f340ffedb9f62a277e2d/output/res/drawable-watch-v20/common_google_signin_btn_text_light_normal.xml"
-    },
-    {
         "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-watch-v20/common_google_signin_btn_text_dark_normal.xml",
         "source": "/home/durgesh/.android/build-cache/9878397cf1f6a1c10fccdb66dcd7b93509daa72e/output/res/drawable-watch-v20/common_google_signin_btn_text_dark_normal.xml"
-    },
-    {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-watch-v20/common_google_signin_btn_text_disabled.xml",
-        "source": "/home/ark/.android/build-cache/4b069f52af7d13150b97f340ffedb9f62a277e2d/output/res/drawable-watch-v20/common_google_signin_btn_text_disabled.xml"
     }
 ]

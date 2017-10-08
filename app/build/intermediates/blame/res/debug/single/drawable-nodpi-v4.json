@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/cast_album_art_placeholder_large.png",
-        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable-nodpi-v4/cast_album_art_placeholder_large.png"
-    },
-    {
-        "merged": "/media/ark/Arpan/Android Stuff/ArK/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/cast_album_art_placeholder.png",
-        "source": "/home/ark/.android/build-cache/2463b80f2fb3f6be56d1a61baf027850b9ccd96a/output/res/drawable-nodpi-v4/cast_album_art_placeholder.png"
-    },
-    {
         "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/cast_album_art_placeholder_large.png",
         "source": "/home/durgesh/.android/build-cache/a56e04b5b1abda6932d5c11de94899a05587e5ef/output/res/drawable-nodpi-v4/cast_album_art_placeholder_large.png"
     },

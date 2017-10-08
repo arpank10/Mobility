@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 
 import com.example.ark.ark.Constants;
 import com.example.ark.ark.R;
@@ -103,7 +104,7 @@ public class DataRecording extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-
+        Log.d("durgesh" , "datta strtcommand");
         if (intent != null && intent.getExtras() != null) {
             user = intent.getExtras().getString("username");
             String t = intent.getExtras().getString("acc_mag_freq");
@@ -199,6 +200,9 @@ public class DataRecording extends Service {
                 getDataGps();
             }
         }, 0, gps_freq);
+
+
+
         return START_STICKY;
     }
 
