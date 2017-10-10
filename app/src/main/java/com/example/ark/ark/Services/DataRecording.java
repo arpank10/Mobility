@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.NotificationCompat;
@@ -33,7 +34,7 @@ import java.util.*;
 import static com.example.ark.ark.Constants.*;
 
 /**
- * Created by ark on 12/8/17.
+ * Created by ark on 10/10/17.
  */
 
 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -43,6 +44,7 @@ public class DataRecording extends Service {
     private Gps gps;
     private Rotation rot;
     private Timer myTimer, gpsTimer;
+    private PowerManager.WakeLock wakelock;
     //frequency variables
     private int acc_mag_freq = 100;
     private int gps_freq = 2000;
@@ -104,7 +106,9 @@ public class DataRecording extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        Log.d("durgesh" , "datta strtcommand");
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakelock= pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, getClass().getCanonicalName());
+        wakelock.acquire();
         if (intent != null && intent.getExtras() != null) {
             user = intent.getExtras().getString("username");
             String t = intent.getExtras().getString("acc_mag_freq");
@@ -147,7 +151,7 @@ public class DataRecording extends Service {
             @Override
             public void run() {
 
-                /*int vt=Integer.parseInt(time2.format(new Date()));
+                int vt=Integer.parseInt(time2.format(new Date()));
                 if(vt>=01&&vt<=05)
                     should_record=false;
                 else
@@ -176,7 +180,8 @@ public class DataRecording extends Service {
                         e.printStackTrace();
                     }
                     count_acc=0;
-                }*/
+                }
+                Log.i("SensorDataRecord","Data recorded");
                 getDataSensors();
             }
 
@@ -186,7 +191,7 @@ public class DataRecording extends Service {
             @Override
             public void run() {
 
-                /*if(count_gps==Constants.TOTAL_RECORDINGS)
+                if(count_gps==Constants.TOTAL_RECORDINGS)
                 {
                     gps_name=user+"_"+time1.format(new Date())+"_"+Constants.DATA_FILE_NAME_GPS;
                     dataFile_Gps=new File(gpsDirectory,gps_name);
@@ -196,13 +201,10 @@ public class DataRecording extends Service {
                         e.printStackTrace();
                     }
                     count_gps=0;
-                }*/
+                }
                 getDataGps();
             }
         }, 0, gps_freq);
-
-
-
         return START_STICKY;
     }
 
@@ -215,10 +217,10 @@ public class DataRecording extends Service {
         data_Gps.append(String.format("%.10f", gpsreading[1]));
         data_Gps.append("\n");
         try {
-            //if(should_record){
-            //count_gps++;
+            if(should_record){
+            count_gps++;
             dataOutputStream_Gps.write(data_Gps.toString().getBytes());
-            //}
+            }
             data_Gps.setLength(0);
         } catch (IOException e) {
             e.printStackTrace();
@@ -269,18 +271,19 @@ public class DataRecording extends Service {
         }
         data_Acc.append("\n");
         try {
-            //if(should_record==true){
-            //count_acc++;
+            if(should_record==true){
+            count_acc++;
             dataOutputStream_Acc.write(data_Acc.toString().getBytes());
             if (magnetometer.isMagAvailable()) {
                 dataOutputStream_Mag.write(data_Mag.toString().getBytes());
                 if (mode == "1") {
                     dataOutputStream_Rot.write(data_Rot.toString().getBytes());
                 }
-            }
+            }}
             data_Acc.setLength(0);
             data_Rot.setLength(0);
             data_Mag.setLength(0);
+            Log.i("SensorData","RecordedInFile");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -288,6 +291,8 @@ public class DataRecording extends Service {
 
     @Override
     public void onDestroy() {
+
+        wakelock.release();
         super.onDestroy();
     }
 
