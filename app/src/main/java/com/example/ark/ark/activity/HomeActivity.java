@@ -2,8 +2,6 @@ package com.example.ark.ark.activity;
 
 import android.Manifest;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,24 +10,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Cache;
 import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Network;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,8 +27,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ark.ark.R;
-import com.example.ark.ark.Services.uploading;
 import com.example.ark.ark.app_url.app_config;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,10 +50,7 @@ public class HomeActivity extends AppCompatActivity{
 
     public static String username_public;
 
-
-    private Context ctx;
-    private AlertDialog pDialog;
-    SharedPreferences pref , pref1;
+    SharedPreferences pref;
 
 
     @Override
@@ -83,7 +69,6 @@ public class HomeActivity extends AppCompatActivity{
         }
 
         btnRegister = (Button) findViewById(R.id.button_tostart);
-        ctx = this;
 
         //Dealing with permissions
         int PERMISSION_ALL = 1;
@@ -138,14 +123,8 @@ public class HomeActivity extends AppCompatActivity{
 
     }
 
-
-    public void displayError(){
-        Toast toast=Toast.makeText(getApplicationContext(), "Enter name of atleast one letter",Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
     //Checking if the app has required permissions
-    public static boolean hasPermissions(Context context, String... permissions) {
+    public static boolean hasPermissions(Context context, String[] permissions) {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
             for (String permission : permissions) {
                 if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
@@ -158,12 +137,8 @@ public class HomeActivity extends AppCompatActivity{
 
     private  void register(final  String username , final String name , final String password , final String email){
 
-
-
-        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024);
-        Network network = new BasicNetwork(new HurlStack());
         String url = app_config.URL_REGISTER;
-        final RequestQueue requestQueue =Volley.newRequestQueue(ctx);
+        final RequestQueue requestQueue =Volley.newRequestQueue(this);
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -172,7 +147,7 @@ public class HomeActivity extends AppCompatActivity{
                         Log.d("durgesh", "Register Response: " + response.toString());
                         if(response.contains("success")){
                             requestQueue.stop();
-                            Intent intent = new Intent(ctx.getApplicationContext(), MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                             SharedPreferences.Editor ed = pref.edit();
                             ed.putBoolean("activity_executed", true);
@@ -225,18 +200,22 @@ public class HomeActivity extends AppCompatActivity{
 
     public  boolean isNetworkAvailable() {
         boolean haveConnectedWifi = false;
-        boolean haveConnectedMobile = false;
+        //boolean haveConnectedMobile = false;
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo[] netInfo = cm.getAllNetworkInfo();
         for (NetworkInfo ni : netInfo) {
             if (ni.getTypeName().equalsIgnoreCase("WIFI"))
                 if (ni.isConnectedOrConnecting())
                     haveConnectedWifi = true;
-            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
-                if (ni.isConnectedOrConnecting())
-                    haveConnectedMobile = true;
+            //if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+           //     if (ni.isConnectedOrConnecting())
+           //         haveConnectedMobile = true;
         }
-        return haveConnectedWifi || haveConnectedMobile;
+        return haveConnectedWifi;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

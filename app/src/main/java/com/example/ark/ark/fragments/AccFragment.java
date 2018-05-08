@@ -1,11 +1,6 @@
 package com.example.ark.ark.fragments;
 
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,6 +21,7 @@ public class AccFragment extends Fragment{
     private float[] accValues;
     private Accelerometer acc;
     private Timer timer;
+    private View rootView=null;
     public AccFragment() {
         // Required empty public constructor
     }
@@ -34,12 +30,12 @@ public class AccFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        final View rootView = inflater.inflate(R.layout.fragment_accfragment, container, false);
+        rootView = inflater.inflate(R.layout.fragment_accfragment, container, false);
         x=rootView.findViewById(R.id.ax);
         y=rootView.findViewById(R.id.ay);
         z=rootView.findViewById(R.id.az);
 
-        acc=new Accelerometer(getActivity());
+        acc=new Accelerometer(getActivity().getApplicationContext());
         if(acc.isAccAvailable())
         {
             accValues=new float[3];
@@ -58,7 +54,7 @@ public class AccFragment extends Fragment{
                     });
                 }
 
-            }, 0,100);
+            }, 0,50);
         }
 
         return rootView;
@@ -80,6 +76,10 @@ public class AccFragment extends Fragment{
 
     @Override
     public void onDestroyView() {
+        rootView=null;
+        acc.unregister();
+        if(timer!=null)
+        timer.cancel();
         super.onDestroyView();
     }
 }

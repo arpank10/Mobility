@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,8 +24,10 @@ import com.example.ark.ark.Services.DataRecording;
  */
 public class SettingsFragment extends PreferenceFragment {
 
+    SharedPreferences pref;
 
     public SettingsFragment() {
+        setValues();
         // Required empty public constructor
     }
 
@@ -31,52 +35,26 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setValues();
         getActivity().setTitle("Settings");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setValues();
         addPreferencesFromResource(R.xml.preferences);
         Preference button = findPreference(getString(R.string.save_button));
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
+                setValues();
                 restartRecording();
                 return true;
             }
         });
-        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String m=pref.getString("Mode",null);
-        Preference mode=findPreference("Mode");
-        if(m=="1")
-            mode.setSummary(R.string.include);
-        else if(m=="2")
-            mode.setSummary(R.string.exclude);
-        mode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                String newval=o.toString();
-                if(newval=="1")
-                    preference.setSummary(R.string.include);
-                else if(newval=="2")
-                    preference.setSummary(R.string.exclude);
-                return true;
-            }
-        });
-       Preference def_mode=findPreference("defaultm");
-        def_mode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                String newval=o.toString();
-                if(newval=="1")
-                   preference.setSummary(R.string.include);
-                else if(newval=="2")
-                preference.setSummary(R.string.exclude);
-                return true;
-            }
-        });
     }
+
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
@@ -89,7 +67,7 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     private void restartRecording() {
-        SharedPreferences pref = getActivity().getSharedPreferences("username", 0);
+        SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("ActivityPREF",0);
         String s = pref.getString("user", "");
         SharedPreferences pref1 = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String acc_mag_freq = pref1.getString("acc_mag_frequency", "100");
@@ -109,5 +87,23 @@ public class SettingsFragment extends PreferenceFragment {
         }
         Toast.makeText(getActivity(),recording_mode,Toast.LENGTH_SHORT).show();
         Toast.makeText(getActivity(), "Data recording restarted", Toast.LENGTH_SHORT).show();
+    }
+    public void setValues(){
+        Preference mode=findPreference("Mode");
+        Log.d("Connected","asdsadasd");
+        if (mode instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) mode;
+            Log.d("Connected","abcd");
+            mode.setSummary(listPref.getEntry());
+        }
+        mode=findPreference("defaultm");
+        if(mode instanceof ListPreference){
+            ListPreference listr=(ListPreference) mode;
+            mode.setSummary(listr.getEntry());
+        }
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }

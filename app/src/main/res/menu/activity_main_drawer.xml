@@ -20,6 +20,10 @@
             android:icon="@drawable/ic_gps_fixed_black_24dp"
             android:title="@string/nav_gps" />
         <item
+            android:id="@+id/nav_gyro"
+            android:icon="@drawable/ic_gps_fixed_black_24dp"
+            android:title="Gyroscope" />
+        <item
             android:id="@+id/nav_rotation"
             android:icon="@drawable/ic_acc"
             android:title="Rotation" />

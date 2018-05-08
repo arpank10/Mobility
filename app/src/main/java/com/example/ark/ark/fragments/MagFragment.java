@@ -1,11 +1,6 @@
 package com.example.ark.ark.fragments;
 
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ark.ark.R;
-import com.example.ark.ark.Sensors.Accelerometer;
 import com.example.ark.ark.Sensors.Magnetometer;
-import com.google.android.gms.internal.acc;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,7 +21,7 @@ public class MagFragment extends Fragment{
     private float[] magValues;
     private Magnetometer mag;
     private Timer timer;
-
+    View rootView;
     public MagFragment() {
         // Required empty public constructor
     }
@@ -37,11 +30,11 @@ public class MagFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        View rootView = inflater.inflate(R.layout.fragment_mag, container, false);
+        rootView = inflater.inflate(R.layout.fragment_mag, container, false);
         x=rootView.findViewById(R.id.mx);
         y=rootView.findViewById(R.id.my);
         z=rootView.findViewById(R.id.mz);
-        mag=new Magnetometer(getActivity());
+        mag=new Magnetometer(getActivity().getApplicationContext());
         if(mag.isMagAvailable()) {
             magValues = new float[3];
             timer = new Timer();
@@ -60,7 +53,7 @@ public class MagFragment extends Fragment{
                     });
                 }
 
-            }, 0, 100);
+            }, 0, 50);
         }
         return rootView;
     }
@@ -81,4 +74,12 @@ public class MagFragment extends Fragment{
 
     }
 
+    @Override
+    public void onDestroyView() {
+        rootView=null;
+        mag.unregister();
+        if(timer!=null)
+            timer.cancel();
+        super.onDestroyView();
+    }
 }

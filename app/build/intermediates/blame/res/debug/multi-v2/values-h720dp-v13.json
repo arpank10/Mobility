@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/mnt/AE2C1C7D2C1C432F/Android Projects/Mine/Mobility/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/arpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7bb96ebc68a59d7641c479bcc5d86ab9/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/ark/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/3d3b91bafe30938c1c6fb60affa7d9ea/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

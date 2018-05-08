@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="40dp"
-            android:text="Pitch"
+            android:text="X-axis"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/rx"
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="40dp"
-            android:text="Roll"
+            android:text="Y-axis"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/ry"
@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="40dp"
-            android:text="Azimuth"
+            android:text="Z-axis"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/rz"

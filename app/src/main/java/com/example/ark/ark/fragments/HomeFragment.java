@@ -14,7 +14,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
-import com.example.ark.ark.Manifest;
 import com.example.ark.ark.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -51,6 +49,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     Location mLastLocation;
     Marker mCurrLocationMarker;
     RadioGroup rgViews;
+    View view;
     private boolean first=true;
 
     public HomeFragment() {
@@ -61,7 +60,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, null, false);
+        view = inflater.inflate(R.layout.fragment_home, null, false);
 
         rgViews = view.findViewById(R.id.rg_views);
         mapFrag = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map);
@@ -132,7 +131,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     }
 
     protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity().getApplicationContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
@@ -146,7 +145,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
         mLocationRequest.setInterval(1000);
         mLocationRequest.setFastestInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-        if (ContextCompat.checkSelfPermission(getActivity(),
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -192,11 +191,11 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     }
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     android.Manifest.permission.ACCESS_FINE_LOCATION))
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(getActivity().getApplicationContext())
                         .setTitle("Location Permission Needed")
                         .setMessage("This app needs the Location permission, please accept to use location functionality")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -255,4 +254,20 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        view=null;
+        rgViews=null;
+        LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,this);
+        //mGoogleApiClient.disconnect();
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        view=null;
+        //LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,this);
+        //mGoogleApiClient.disconnect();
+        super.onDestroy();
+    }
 }

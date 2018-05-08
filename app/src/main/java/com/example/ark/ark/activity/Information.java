@@ -1,0 +1,19 @@
+package com.example.ark.ark.activity;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.ark.ark.R;
+
+/**
+ * Created by ark on 17/10/17.
+ */
+
+public class Information extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.info);
+    }
+}

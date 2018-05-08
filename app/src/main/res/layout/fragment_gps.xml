@@ -1,53 +1,65 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    android:orientation="vertical"
-    tools:context=".fragments.AccFragment">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".fragments.AccFragment"
+    android:fillViewport="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <TextView
+        android:background="@drawable/bg"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.10">
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="40dp"
-            android:text="Latitude"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/gx"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="X-Axis"
-            android:textSize="25dp"
-            android:gravity="center"
-            android:layout_weight="1"/>
+            android:layout_gravity="fill_vertical"
+            android:layout_weight="0.50"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="268dp"
+                android:adjustViewBounds="true"
+                android:baselineAlignBottom="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/location" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your loction is:"
+                android:textAlignment="center"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/gx"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="X-Axis"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/gy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Y-Axis"
+                    android:textSize="25dp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="40dp"
-            android:text="Longitude"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/gy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="25dp"
-            android:text="Y-Axis"
-            android:gravity="center"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

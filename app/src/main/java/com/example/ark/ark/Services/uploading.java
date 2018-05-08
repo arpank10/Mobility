@@ -56,10 +56,10 @@ public  class uploading   {
     URL url = null;
 
 
-    public boolean upload_file_to_server(String filename){
+    public boolean upload_file_to_server(String filename) {
 
 
-        Log.d("durgesh" , "NTKcommand");
+        Log.d("durgesh", "NTKcommand");
         try {
             url = new URL(app_config.FILE_UPLOAD);
         } catch (MalformedURLException e) {
@@ -71,105 +71,104 @@ public  class uploading   {
         String boundary = "*****";
         int bytesRead, bytesAvailable, bufferSize;
         byte[] buffer;
-        int maxBufferSize = 100*1024*1024;
+        int maxBufferSize = 100 * 1024 * 1024;
+        File sourceFile = new File(filename);
+        if (!sourceFile.isFile()) {
+            Log.d("uploadFile", "not a file");
+            return false;
+        } else {
+            try {
+                Log.d("durgesh", "entered");
 
+                FileInputStream fileInputStream = new FileInputStream(filename);
+                Log.d("durgesh", "entered2");
 
-        try {
-            Log.d("durgesh" , "entered");
-
-            FileInputStream fileInputStream = new FileInputStream(filename);
-            Log.d("durgesh" , "entered2");
-
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            conn.setUseCaches(false);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Connection", "Keep-Alive");
-            conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-            conn.setRequestProperty("uploaded_file", filename);
-            Log.d("durgesh" , "entered3");
-
-            conn.connect();
-            dos = new DataOutputStream(conn.getOutputStream());
-
-
-
-            dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"file\";filename=\""
-                            + filename + "\";" + lineEnd);
-
-            dos.writeBytes(lineEnd);
-            Log.d("durgesh" , "entered4");
-
-            // create a buffer of  maximum size
-            bytesAvailable = fileInputStream.available();
-
-            bufferSize = Math.min(bytesAvailable, maxBufferSize);
-            buffer = new byte[bufferSize];
-
-            // read file and write it into form...
-            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-
-            while (bytesRead > 0) {
-
-                dos.write(buffer, 0, bufferSize);
-                bytesAvailable = fileInputStream.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-
-            }
-            Log.d("durgesh" , "response");
-
-
-            dos.writeBytes(lineEnd);
-            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-            // Responses from the server (code and message)
-            int serverResponseCode = conn.getResponseCode();
-            String serverResponseMessage = conn.getResponseMessage();
-
-            Log.i("uploadFile", "HTTP Response is : "
-                    + serverResponseMessage + ": " + serverResponseCode);
-
-
-            if(serverResponseCode == 200){
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.setUseCaches(false);
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Connection", "Keep-Alive");
+                conn.setRequestProperty("ENCTYPE", "multipart/form-data");
+                conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+                conn.setRequestProperty("uploaded_file", filename);
+                Log.d("durgesh", "entered3");
 
                 conn.connect();
-                Log.d("durgesh" , "res");
+                dos = new DataOutputStream(conn.getOutputStream());
 
-                InputStream input = conn.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                StringBuffer response = new StringBuffer();
-                String line;
 
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
+                dos.writeBytes(twoHyphens + boundary + lineEnd);
+                dos.writeBytes("Content-Disposition: form-data; name=\"file\";filename=\""
+                        + filename + "\";" + lineEnd);
+
+                dos.writeBytes(lineEnd);
+                Log.d("durgesh", "entered4");
+
+                // create a buffer of  maximum size
+                bytesAvailable = fileInputStream.available();
+
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                buffer = new byte[bufferSize];
+
+                // read file and write it into form...
+                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
+                while (bytesRead > 0) {
+
+                    dos.write(buffer, 0, bufferSize);
+                    bytesAvailable = fileInputStream.available();
+                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                    bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
                 }
-                Log.d("durgesh" ,response.toString());
-
-                fileInputStream.close();
-                reader.close();
-                input.close();
-                dos.flush();
-                dos.close();
+                Log.d("durgesh", "response");
 
 
-                 return  true;
+                dos.writeBytes(lineEnd);
+                dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+                // Responses from the server (code and message)
+                int serverResponseCode = conn.getResponseCode();
+                String serverResponseMessage = conn.getResponseMessage();
+
+                Log.d("uploadFile", "HTTP Response is : "
+                        + serverResponseMessage + ": " + serverResponseCode);
+
+
+                if (serverResponseCode == 200) {
+
+                    conn.connect();
+                    Log.d("durgesh", "res");
+
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuffer response = new StringBuffer();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    Log.d("durgesh", response.toString());
+                    String response_server = response.toString();
+                    fileInputStream.close();
+                    reader.close();
+                    input.close();
+                    dos.flush();
+                    dos.close();
+                    if(response_server.equals("uploaded")) return  true;
+                    else return false;
+                } else {
+                    fileInputStream.close();
+                    dos.flush();
+                    dos.close();
+                    return false;
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
             }
-            else {
-                fileInputStream.close();
-                dos.flush();
-                dos.close();
-                return  false;
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return  false;
         }
-
-
     }
-
 }

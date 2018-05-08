@@ -1,12 +1,14 @@
 package com.example.ark.ark.Services;
 
 
+import android.app.IntentService;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -76,60 +78,44 @@ import static com.example.ark.ark.Constants.DIRECTORY;
  * Created by durgesh on 2/10/17.
  */
 
-public class background_uploading extends AsyncTask<String ,Void , String> {
-    // public static  String username;
+public class background_uploading extends IntentService {
     Context ctx;
 
     File sdDirectory = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + DIRECTORY);
     File accDirectory = new File(sdDirectory + Constants.DIRECTORY_ACC);
     File magDirectory = new File(sdDirectory + Constants.DIRECTORY_MAG);
     File gpsDirectory = new File(sdDirectory + Constants.DIRECTORY_GPS);
+    File gyroDirectory = new File(sdDirectory + Constants.DIRECTORY_GYRO);
     File rotationDirectory = new File(sdDirectory + Constants.DIRECTORY_ROTATION);
 
     uploading u;
 
-    NotificationManager mNotifyManager;
-    NotificationCompat.Builder mBuilder;
-
-
-    public background_uploading(Context context){
-
-        ctx = context;
-        mNotifyManager =
-                (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-        mBuilder = new NotificationCompat.Builder(ctx);
-        mBuilder.setContentTitle("Uploading")
-                .setContentText("uploading started");
-
-
+    public background_uploading() {
+        super("bu");
     }
 
     @Override
-    protected String doInBackground(String... strings) {
-        //username = strings[0];
+    protected void onHandleIntent(@Nullable Intent intent) {
         u = new uploading();
         Select_Dir();
 
 
-        return null;
     }
-
-
 
     public  boolean isNetworkAvailable() {
         boolean haveConnectedWifi = false;
-        boolean haveConnectedMobile = false;
-        ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+        //boolean haveConnectedMobile = false;
+        ConnectivityManager cm = (ConnectivityManager) this.getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo[] netInfo = cm.getAllNetworkInfo();
         for (NetworkInfo ni : netInfo) {
             if (ni.getTypeName().equalsIgnoreCase("WIFI"))
                 if (ni.isConnectedOrConnecting())
                     haveConnectedWifi = true;
-            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
-                if (ni.isConnectedOrConnecting())
-                    haveConnectedMobile = true;
+            //if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+            //    if (ni.isConnectedOrConnecting())
+            //        haveConnectedMobile = true;
         }
-        return haveConnectedWifi || haveConnectedMobile;
+        return haveConnectedWifi;
     }
 
 
@@ -140,56 +126,93 @@ public class background_uploading extends AsyncTask<String ,Void , String> {
         File[] files_mag  = magDirectory.listFiles();
         File[] files_gps  = gpsDirectory.listFiles();
         File[] files_rot  = rotationDirectory.listFiles();
-        Sort_files(files_acc);
-        Sort_files(files_gps);
-        Sort_files(files_mag);
-        Sort_files(files_rot);
-        while (files_acc.length > 1){
-            Log.d("durgesh" , "continue");
-
-            if(isNetworkAvailable()) {
-                file = files_acc[0];
-                Log.d("durgesh" , file.getPath());
-                if (u.upload_file_to_server(file.getPath())){
-                    file.delete();
-                    Log.d("delete" , file.getPath());
-                }
-            }
-            files_acc = accDirectory.listFiles();
+        File[] files_gyro  = gyroDirectory.listFiles();
+        if(files_acc!=null)
             Sort_files(files_acc);
-        }
-        while (files_mag.length > 1){
-            if(isNetworkAvailable()) {
-                file = files_mag[0];
-                Log.d("durgesh" , file.getPath());
-                if (u.upload_file_to_server(file.getPath())){
-                    file.delete();
-                    Log.d("delete" , file.getPath());
+        if(files_gps!=null)
+            Sort_files(files_gps);
+        if(files_mag!=null)
+            Sort_files(files_mag);
+        if(files_gyro!=null)
+            Sort_files(files_gyro);
+        if(files_rot!=null)
+            Sort_files(files_rot);
+        if(files_acc!=null) {
+            while (files_acc.length > 1) {
+                Log.d("durgesh", "continue");
+
+                if (isNetworkAvailable()) {
+                    file = files_acc[0];
+                    Log.d("durgesh", file.getPath());
+                    if (u.upload_file_to_server(file.getPath())) {
+                        file.delete();
+                        Log.d("delete", file.getPath());
+                    }
                 }
+                files_acc = accDirectory.listFiles();
+                if(files_acc!=null)
+                    Sort_files(files_acc);
             }
-            files_mag = magDirectory.listFiles();
         }
-        while (files_gps.length > 1){
-            if(isNetworkAvailable()) {
-                file = files_gps[0];
-                if (u.upload_file_to_server(file.getPath())){
-                    file.delete();
-                    Log.d("delete " , file.getPath());
+        if(files_mag!=null) {
+            while (files_mag.length > 1) {
+                if (isNetworkAvailable()) {
+                    file = files_mag[0];
+                    Log.d("durgesh", file.getPath());
+                    if (u.upload_file_to_server(file.getPath())) {
+                        file.delete();
+                        Log.d("delete", file.getPath());
+                    }
                 }
-                Log.d("durgesh" , file.getPath());
+                files_mag = magDirectory.listFiles();
+                if(files_mag!=null)
+                    Sort_files(files_mag);
             }
-            files_gps = gpsDirectory.listFiles();
         }
-        while (files_rot.length > 1){
-            if(isNetworkAvailable()) {
-                file = files_rot[0];
-                if (u.upload_file_to_server(file.getPath())){
-                    file.delete();
-                    Log.d("delete " , file.getPath());
+        if(files_gyro!=null) {
+            while (files_gyro.length > 1) {
+                if (isNetworkAvailable()) {
+                    file = files_gyro[0];
+                    Log.d("durgesh", file.getPath());
+                    if (u.upload_file_to_server(file.getPath())) {
+                        file.delete();
+                        Log.d("delete", file.getPath());
+                    }
                 }
-                Log.d("durgesh" , file.getPath());
+                files_gyro = gyroDirectory.listFiles();
+                if(files_gyro!=null)
+                    Sort_files(files_gyro);
             }
-            files_rot = rotationDirectory.listFiles();
+        }
+        if(files_gps!=null) {
+            while (files_gps.length > 1) {
+                if (isNetworkAvailable()) {
+                    file = files_gps[0];
+                    if (u.upload_file_to_server(file.getPath())) {
+                        file.delete();
+                        Log.d("delete ", file.getPath());
+                    }
+                    Log.d("durgesh", file.getPath());
+                }
+                files_gps = gpsDirectory.listFiles();
+                if(files_gps!=null)
+                    Sort_files(files_gps);
+            }
+        }
+        if(files_rot!=null) {
+            while (files_rot.length > 1) {
+                if (isNetworkAvailable()) {
+                    file = files_rot[0];
+                    if (u.upload_file_to_server(file.getPath())) {
+                        file.delete();
+                        Log.d("delete ", file.getPath());
+                    }
+                    Log.d("durgesh", file.getPath());
+                }
+                files_rot = rotationDirectory.listFiles();
+                if(files_rot!=null)
+                    Sort_files(files_rot);
+            }
         }
     }
 
@@ -202,132 +225,6 @@ public class background_uploading extends AsyncTask<String ,Void , String> {
             }
         });
     }
-/*
-    @Override
-    protected void onProgressUpdate(Void... values) {
-        mBuilder.setContentTitle("Uploading")
-                .setContentText("uploading in progress");
-    }
-    @Override
-    protected void onPostExecute(String result) {
-        mBuilder.setContentTitle("Uploading")
-                .setContentText("uploading finished");
-    }
-*/
-
-
-
-/*
-
-    Context  context;
-    AlertDialog alertdialog ;
-    String result;
-
-     background_register(Context ctx){
-         context = ctx;
-
-     }
-    URL url ;
-    HttpURLConnection urlConnection = null;
-
-
-    @Override
-    protected String doInBackground(String... strings) {
-
-
-         username = strings[0];
-        String password = strings[1];
-        String email = strings[2];
-
-        try {
-            url = new URL(app_config.URL_REGISTER);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return new String("Exception: " + e.getMessage());
-        }
-
-        try {
-
-
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("POST");
-           urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
-            urlConnection.setDoOutput(true);
-            urlConnection.setDoInput(true);
-            urlConnection.connect();
-
-
-            OutputStream outputStream = urlConnection.getOutputStream();
-            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-
-            String post_data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8") + "&" +
-                    URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8") + "&" +
-                    URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
-            bufferedWriter.write(post_data);
-            bufferedWriter.flush();
-            bufferedWriter.close();
-
-
-            int responseCode= urlConnection.getResponseCode();
-            String res = String.valueOf(responseCode);
-
-
-
-            if (responseCode == 200) {
-                urlConnection.connect();
-
-                InputStream input = urlConnection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                StringBuffer response = new StringBuffer();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-
-                reader.close();
-                input.close();
-                return response.toString();
-            }
-            else {
-                return new String("false : "+responseCode);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new String("Exception: " + e.getMessage());
-        }
-
-
-    }
-
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-
-    }
-
-
-    @Override
-    protected void onPostExecute(String result) {
-        super.onPreExecute();
-        Toast.makeText(context, result,
-                Toast.LENGTH_LONG).show();
-
-        if(result == "success"){
-            app_config.logging = 1;
-
-            Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(context, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-        }
-
-    }
-
-*/
 
 }
 

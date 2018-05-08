@@ -1,17 +1,13 @@
 package com.example.ark.ark.activity;
 
 import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -20,14 +16,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,55 +32,58 @@ import com.example.ark.ark.Constants;
 import com.example.ark.ark.R;
 
 import com.example.ark.ark.Services.DataRecording;
-import com.example.ark.ark.Services.Internet_Broadcast;
 import com.example.ark.ark.Services.background_uploading;
-import com.example.ark.ark.Services.uploading;
-import com.example.ark.ark.app_url.app_config;
 import com.example.ark.ark.fragments.AccFragment;
 import com.example.ark.ark.fragments.GpsFragment;
+import com.example.ark.ark.fragments.GyroFragment;
 import com.example.ark.ark.fragments.HomeFragment;
 import com.example.ark.ark.fragments.MagFragment;
 import com.example.ark.ark.fragments.RotationFragment;
 
+
 import java.io.File;
 
-import static com.example.ark.ark.activity.HomeActivity.username_public;
 
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+    //Variables
     TextView user_text;
     String user_header_xml;
-    Internet_Broadcast Ireciever = new Internet_Broadcast();
-    public static background_uploading bu = null;
-
+    //Internet_Broadcast Ireciever = new Internet_Broadcast();
+    //public static background_uploading bu = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
         String k=pref.getString("defaultm","abcd");
-        Toast.makeText(this,k,Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,k,Toast.LENGTH_LONG).show();
         SharedPreferences.Editor ed=pref.edit();
         ed.putString("Mode",k);
         ed.commit();
 
-        String kq=pref.getString("Mode","abcd");
+        //String kq=pref.getString("Mode","abcd");
 
-        Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,kq,Toast.LENGTH_LONG).show();
 
         // creating Directory Data here after checking corresponding permission
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            //Directory variable
             File sdDirectory = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + Constants.DIRECTORY);
             File accDirectory=new File(sdDirectory+Constants.DIRECTORY_ACC);
             File magDirectory=new File(sdDirectory+Constants.DIRECTORY_MAG);
             File gpsDirectory=new File(sdDirectory+Constants.DIRECTORY_GPS);
+            File gyroDirectory=new File(sdDirectory+Constants.DIRECTORY_GYRO);
             File rotationDirectory= new File(sdDirectory+Constants.DIRECTORY_ROTATION);
+            //Creating respective directories
             if(sdDirectory.exists() && sdDirectory.isDirectory()){}
             else{sdDirectory.mkdirs();}
             if(accDirectory.exists()&&accDirectory.isDirectory()){}
@@ -95,17 +92,23 @@ public class MainActivity extends AppCompatActivity
             else {magDirectory.mkdirs();}
             if(gpsDirectory.exists() && gpsDirectory.isDirectory()){}
             else{gpsDirectory.mkdirs();}
+            if(gyroDirectory.exists() && gyroDirectory.isDirectory()){}
+            else{gyroDirectory.mkdirs();}
             if(rotationDirectory.exists()&&rotationDirectory.isDirectory()){}
             else{rotationDirectory.mkdirs();}
         }
         final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        //Display GPS prompt if not enabled
         if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
             displayGPSprompt();
-
+        //Start recording if not running
         if(!isMyServiceRunning(DataRecording.class)) {
             startrecording();
         }
-
+        if(!isMyServiceRunning(background_uploading.class)){
+            Intent intent1= new Intent(this,background_uploading.class);
+            startService(intent1);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -125,40 +128,21 @@ public class MainActivity extends AppCompatActivity
         user_header_text.setText(user_header_xml);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_home);
+        if(savedInstanceState==null)
+            displaySelectedScreen(R.id.nav_home);
 
 
-       start_uploading();
+        //start_uploading();
 
     }
-
-    public void start_uploading(){
+    //Function to start data uploading to server
+   /* public void start_uploading(){
         Log.d("status", "async task out  main activity");
 
         if( bu == null || bu.getStatus() != AsyncTask.Status.RUNNING){
             Log.d("status", "async task main activity");
             bu = new background_uploading(this);
             bu.execute();
-        }
-    }
-
-
-    /*private void permissioncheck() {
-        int permissionloc = ContextCompat.checkSelfPermission(this,
-                android.Manifest.permission_group.LOCATION);
-        int storagePermission = ContextCompat.checkSelfPermission(this,
-                android.Manifest.permission_group.STORAGE);
-
-        List<String> listPermissionsNeeded = new ArrayList<>();
-        if (storagePermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission_group.STORAGE);
-        }
-        if (permissionloc!= PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission_group.LOCATION);
-        }
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this,
-                    listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),1);
         }
     }*/
 
@@ -171,16 +155,17 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     @Override
     public void onResume(){
         super.onResume();
-        registerReceiver( this.Ireciever ,
-                new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        /*registerReceiver( this.Ireciever ,
+                new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));*/
     }
     @Override
     public void onPause(){
         super.onPause();
-        unregisterReceiver( this.Ireciever );
+        //unregisterReceiver( this.Ireciever );
     }
 
     @Override
@@ -190,6 +175,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //Function to initiate operation based on option clicked on toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -212,6 +198,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //Display the selected fragment
     private void displaySelectedScreen(int itemId) {
 
         //creating fragment object
@@ -234,12 +221,16 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_rotation:
                 fragment = new RotationFragment();
                 break;
+            case R.id.nav_gyro:
+                fragment = new GyroFragment();
+                break;
             case R.id.nav_settings:
                 Intent intent1=new Intent(this,SettingsActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_view_files:
             {
+                //Sending intent to file manager
                 Uri uri=Uri.parse("/sdcard/Mobility/");
                 Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(uri,"resource/folder");
@@ -266,7 +257,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -276,6 +266,8 @@ public class MainActivity extends AppCompatActivity
         //make this method blank
         return true;
     }
+
+    //Function to check if data recording is running or not
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -285,6 +277,8 @@ public class MainActivity extends AppCompatActivity
         }
         return false;
     }
+
+    //Function to stop data recording
     public void stoprecording()
     {
         if(isMyServiceRunning(DataRecording.class))
@@ -298,6 +292,8 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this,"Data Recording is currently not active",Toast.LENGTH_SHORT).show();
         }
     }
+
+    //Function to start Data Recording
     public void startrecording()
     {
         if(!isMyServiceRunning(DataRecording.class))
@@ -327,10 +323,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
+    //Display GPS prompt if GPS is off
     public void displayGPSprompt(){
         final AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        new AlertDialog.Builder(this);
         final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
         final String message = "GPS is currently switched off"+" Switch it on for high location accuracy";
         builder.setMessage(message)
@@ -348,6 +343,12 @@ public class MainActivity extends AppCompatActivity
                             }
                         });
         builder.create().show();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     /*

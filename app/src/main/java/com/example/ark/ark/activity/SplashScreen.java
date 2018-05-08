@@ -1,15 +1,10 @@
 package com.example.ark.ark.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.ark.ark.Constants;
 import com.example.ark.ark.R;
 
 /**
@@ -27,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 try
                 {
-                    sleep(3000);
+                    sleep(2000);
                     Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(intent);
                     finish();
@@ -38,5 +33,10 @@ public class SplashScreen extends AppCompatActivity {
             }
         };
         new_thread.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

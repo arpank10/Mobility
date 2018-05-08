@@ -6,7 +6,7 @@ package com.example.ark.ark.app_url;
 
 public class app_config {
     //server ip address
-    public static String SERVER_IP = "10.3.1.16";
+    public static String SERVER_IP = "172.16.44.208";
     public static String FILE_UPLOAD = "http://" + SERVER_IP + "/phpdocuments/dy.php";
     public static String URL_REGISTER = "http://" + SERVER_IP + "/phpdocuments/register.php";
 
@@ -16,6 +16,7 @@ public class app_config {
 
     //logging in
     public static int logging = 0;
+
 
 
 }

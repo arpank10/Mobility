@@ -1,30 +1,86 @@
 [
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_acc.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_help_black_24dp.png",
+        "source": "/home/ark/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/stop.png"
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_android_black_24dp.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_help_black_24dp.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/home/ark/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_home.png"
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_home.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
+        "source": "/home/ark/Mobility/app/src/main/res/drawable-xhdpi/ic_acc.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_android_black_24dp.png"
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_acc.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_home.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
+        "source": "/home/ark/Mobility/app/src/main/res/drawable-xhdpi/stop.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/stop.png"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png",
+        "source": "/home/ark/Mobility/app/src/main/res/drawable-xhdpi/ic_home.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/stop.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
+        "source": "/home/ark/Mobility/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_help_black_24dp.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_help_black_24dp.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_help_black_24dp.png"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_android_black_24dp.png",
+        "source": "/home/ark/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_gps_fixed_black_24dp.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_acc.png",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/src/main/res/drawable-xhdpi/ic_acc.png"
     }
 ]

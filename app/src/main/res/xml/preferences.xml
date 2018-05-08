@@ -13,7 +13,6 @@
         <ListPreference
             android:key="defaultm"
             android:defaultValue="2"
-            android:summary="2"
             android:persistent="true"
             android:title="Default Mode"
             android:entries="@array/Mode"

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "/home/ark/Mobility/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,55 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "/home/durgesh/.android/build-cache/224d32af1587eca1f97d27a1ffd31a12ce738d09/output/res/values/values.xml",
+                    "file": "/home/ark/.android/build-cache/f69679f8d2dda35c46c1ec257bfabf98f08ac3ff/output/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/home/ark/.android/build-cache/f69679f8d2dda35c46c1ec257bfabf98f08ac3ff/output/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/home/ark/.android/build-cache/f69679f8d2dda35c46c1ec257bfabf98f08ac3ff/output/res/values/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

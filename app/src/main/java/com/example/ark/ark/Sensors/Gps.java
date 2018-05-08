@@ -40,7 +40,7 @@ public class Gps implements LocationListener {
             return  ;
         }
         locman.requestLocationUpdates(gps_provider, 0, 0, this);
-            loc=locman.getLastKnownLocation(gps_provider);
+        loc=locman.getLastKnownLocation(gps_provider);
 
         if(loc== null)
             if (isnetwork) {
@@ -74,10 +74,14 @@ public class Gps implements LocationListener {
         gpsdata[0]=0;gpsdata[1]=0;
         if(loc!=null)
         {
-        gpsdata[0]= (float) loc.getLatitude();
-        gpsdata[1]=(float) loc.getLongitude();
+            gpsdata[0]= (float) loc.getLatitude();
+            gpsdata[1]=(float) loc.getLongitude();
         }
         return gpsdata;
 
+    }
+
+    public void unregister(){
+        locman.removeUpdates(this);
     }
 }

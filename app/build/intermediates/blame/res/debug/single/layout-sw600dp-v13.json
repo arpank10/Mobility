@@ -1,6 +1,14 @@
 [
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
-        "source": "/home/durgesh/.android/build-cache/e725890c47fc7a81d046627493867fb16a996620/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/home/ark/.android/build-cache/bb8cc4508ba2949882050ee6696248b4ba63964f/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
     }
 ]

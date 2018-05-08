@@ -1,6 +1,14 @@
 [
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/xml/preferences.xml",
-        "source": "/home/durgesh/AndroidStudioProjects/Mobility/app/src/main/res/xml/preferences.xml"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/ark/Mobility/app/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/media/ark/Android/Android Projects/Mine/Mobility/app/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/src/main/res/xml/preferences.xml"
     }
 ]

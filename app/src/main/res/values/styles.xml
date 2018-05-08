@@ -36,4 +36,17 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+    <style name="text">
+        <item name="android:padding">10dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:background">#F0F0F0</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="userdetails">
+        <item name="android:padding">10dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">#80DEEA</item>
+    </style>
 </resources>

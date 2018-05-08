@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ark.ark.R;
-import com.example.ark.ark.Sensors.Magnetometer;
 import com.example.ark.ark.Sensors.Rotation;
 
 import java.util.Timer;
@@ -25,7 +24,7 @@ public class RotationFragment extends Fragment {
     private float[] rotValues;
     private Rotation rot;
     private Timer timer;
-
+    View rootView;
     public RotationFragment(){
 
     }
@@ -35,11 +34,11 @@ public class RotationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        View rootView = inflater.inflate(R.layout.fragment_rotation, container, false);
+        rootView = inflater.inflate(R.layout.fragment_rotation, container, false);
         x=rootView.findViewById(R.id.rx);
         y=rootView.findViewById(R.id.ry);
         z=rootView.findViewById(R.id.rz);
-        rot =new Rotation(getActivity());
+        rot =new Rotation(getActivity().getApplicationContext());
             rotValues = new float[3];
             timer = new Timer();
             timer.schedule(new TimerTask() {
@@ -57,7 +56,7 @@ public class RotationFragment extends Fragment {
                     });
                 }
 
-            }, 0, 100);
+            }, 0, 50);
         return rootView;
     }
 
@@ -78,5 +77,12 @@ public class RotationFragment extends Fragment {
         z.setText(String.format("%.5f", rotValues[2]));
 
     }
-
+    @Override
+    public void onDestroyView() {
+        rootView=null;
+        rot.unregister();
+        if(timer!=null)
+            timer.cancel();
+        super.onDestroyView();
+    }
 }

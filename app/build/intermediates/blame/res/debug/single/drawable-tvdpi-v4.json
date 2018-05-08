@@ -1,18 +1,50 @@
 [
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
-        "source": "/home/durgesh/.android/build-cache/3eaed202f0c32d588b6c7358acebecd4c4a99967/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
-        "source": "/home/durgesh/.android/build-cache/3eaed202f0c32d588b6c7358acebecd4c4a99967/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
-        "source": "/home/durgesh/.android/build-cache/3eaed202f0c32d588b6c7358acebecd4c4a99967/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
     },
     {
-        "merged": "/home/durgesh/AndroidStudioProjects/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
-        "source": "/home/durgesh/.android/build-cache/3eaed202f0c32d588b6c7358acebecd4c4a99967/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "/media/ark/Android/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "/home/ark/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
+    },
+    {
+        "merged": "/mnt/78822D1E822CE1FC/Android Projects/Mine/Mobility/app/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/home/ark/.android/build-cache/2f16e76333931e4c90a04fa6f3b2b79a23275cbc/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
     }
 ]

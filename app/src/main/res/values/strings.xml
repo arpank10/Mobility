@@ -18,6 +18,8 @@
     <string name="nav_accelerometer">Accelerometer</string>
     <string name="nav_gps">GPS</string>
     <string name="nav_about_us">About Us</string>
+    <string name="info">Transportation planners and policy makers collect information about your daily travel patterns (i.e. how, when and why people move from one place to another) to understand the mobility behaviour of that particular city/region. This will help us to improve certain services such as public transportation system and reduce traffic chocks in a sustainable manner.
+	Therefore, we, research team from Indian Institute of Technology Guwahati are collecting data for case studies. So, we are  asking you to please help us by participating in the survey. However, the participation is voluntary. It is assured that the participant’s data is kept confidential.</string>
 
     <string-array name="nav_item_activity_titles">
         <item>Home</item>
@@ -29,4 +31,26 @@
     <string name="help">Help</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="developer">Developed by:Arpan Konar and Durgesh Yadav Under A.V.A. Bharat Kumar</string>
+
+
+
+    <string name="datarecordingintro">1. Data recording starts as soon as app is started and continuously records data in the background except during 1 AM to 5 AM.</string>
+    <string name="recording_settings">2. In settings you can select if you want to record rotation data along with accelerometer,magnetometer and gps data.</string>
+    <string name="recordingstartandstop">3. Data recording can be started and stopped from the buttons on the action bar.</string>
+    <string name="frequency_of_data_recording">4. Frequency of data recording can be adjusted from settings.</string>
+    <string name="uploading">5. Data uploading takes place in the background. After every 100000 recordings new file is created and the files are uploaded to server and deleted from phone storage to save memory.Server address(172.16.*.*) needs to be bypassed in wifi.Psiphon needs to be turned off.</string>
+
+    <string name="bug1">1. When you are in home and change device orientation,the app crashes.</string>
+    <string name="_2_bug2">1. Redmi users should not clean the memory,otherwise the background recording also stops.</string>
+    <string name="bug3">2. Cellular network based location requests are not accepted for some mobiles.</string>
+    <string name="bug4">3. During opening the app for the first time you have to be connected to the network to register and start the app.</string>
+
+    <string name="sensor1">1. Accelerometer - Measures the acceleration force in m/s^2 that is applied to a device on all three physical axes (x, y, and z), including the force of gravity</string>
+    <string name="sensor2">2. Magnetometer - Measures the ambient geomagnetic field for all three physical axes (x, y, z) in μT. It may not be present in some mobiles.</string>
+    <string name="sensor3">3. Rotation Sensor - Measures the orientation of a device by providing the three elements of the device\'s rotation vector</string>
+    <string name="sensor4">4. Gps - This gives the location in latitude and longitude.It is present in all mobiles.</string>
+
+    <string name="bypass">Please Note: You need to bypass the server address(172.16.*.*) to register and upload data if it doesn\'t work.Please go to corresponding wifi and change the settings.Psiphon needs to be off.</string>
+
 </resources>

@@ -21,8 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.50"
-        android:text="WELCOME TO USER'S MOBILITY"
+        android:text="WELCOME TO MOBILITY"
         android:textColor="#2E4D4F"
+        android:textAlignment="center"
         android:textSize="25dp"
         />
 
